@@ -39,14 +39,10 @@ while n < 50:
     x = (bigdict[n].get('pressure'))
     x = float(x) / 100000
     bigdict[n]['pressure'] = x
+    y = (bigdict[n].get('temperature'))
+    y = float(y) - 273
+    bigdict[n]['temperature'] = y
     n = n + 1
-
-m = 0
-while m < 50:
-    x = (bigdict[m].get('temperature'))
-    x = float(x) - 273
-    bigdict[m]['temperature'] = x
-    m = m + 1
 
 with open('new.tsv', 'wt') as out_file:
     tsv_writer = csv.writer(out_file, delimiter='\t')
